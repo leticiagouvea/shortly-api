@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createUrl, deleteUrl, readShortUrl, readUrlById } from "../controllers/urlController.js";
+import { createUrl, deleteUrl, readShortUrl, readUrlById } from "../controllers/urlControllers.js";
 import { validateUrl } from "../middlewares/joiMiddleware.js";
 import { tokenValidation } from "../middlewares/tokenMiddleware.js";
 

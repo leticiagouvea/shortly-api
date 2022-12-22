@@ -6,6 +6,7 @@ import { PORT } from './configs/constants.js';
 import authRoutes from './routes/authRoutes.js';
 import urlRoutes from './routes/urlRoutes.js';
 import usersRoutes from './routes/usersRoutes.js';
+import rankingRoutes from './routes/rankingRoutes.js';
 
 const app = express();
 
@@ -14,6 +15,7 @@ app
   .use(express.json())
   .use(authRoutes)
   .use(urlRoutes)
-  .use(usersRoutes);
+  .use(usersRoutes)
+  .use(rankingRoutes);
 
 app.listen(PORT, () => console.log(`Server running in port: ${PORT}`));

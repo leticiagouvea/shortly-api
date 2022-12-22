@@ -15,4 +15,23 @@ export async function getUrlById(id) {
       urls
     WHERE
       id = $1;`, [id]);
-}
+};
+
+export async function getShortUrl(shortUrl) {
+  return await connectionDB.query(`
+    SELECT
+      *
+    FROM
+      urls
+    WHERE
+      "shortUrl" = $1;`, [shortUrl]);
+};
+
+export async function updateUrl(url, shortUrl) {
+  return await connectionDB.query(`
+    UPDATE
+      urls
+    SET "visitCount" = $1
+    WHERE
+      "shortUrl" = $2;`, [url.visitCount + 1, shortUrl]);
+};

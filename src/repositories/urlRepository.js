@@ -35,3 +35,21 @@ export async function updateUrl(url, shortUrl) {
     WHERE
       "shortUrl" = $2;`, [url.visitCount + 1, shortUrl]);
 };
+
+export async function deleteUrlById(id) {
+  return await connectionDB.query(`
+    DELETE FROM
+      urls
+    WHERE
+      id = $1;`, [id]);
+};
+
+export async function getAllDataUrlById(id) {
+  return await connectionDB.query(`
+    SELECT
+      *
+    FROM
+      urls
+    WHERE
+      id = $1;`, [id]);
+};

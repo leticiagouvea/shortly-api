@@ -4,7 +4,10 @@ import { DATABASE_URL } from '../configs/constants.js';
 const { Pool } = pg;
 
 const connectionDB = new Pool ({
-  connectionString: DATABASE_URL
+  connectionString: DATABASE_URL,
+  sll: {
+    rejectUnathorized: false
+  }
 });
 
 export { connectionDB };

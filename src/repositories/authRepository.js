@@ -18,3 +18,17 @@ export async function saveUser(name, email, passwordHash) {
       ($1, $2, $3);`, [name, email, passwordHash]);
 };
 
+export async function insertSession(user, token) {
+  return await connectionDB.query(`
+    INSERT INTO
+      sessions ("userId", token)
+    VALUES ($1, $2);`, [user.id, token]);
+};
+
+export async function deleteSession(user) {
+  return await connectionDB.query(`
+    DELETE FROM
+      sessions
+    WHERE
+      "userId" = $1;`, [user.id]);
+};

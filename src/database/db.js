@@ -5,7 +5,7 @@ const { Pool } = pg;
 
 const connectionDB = new Pool ({
   connectionString: DATABASE_URL,
-  sll: {
+  ssl: {
     rejectUnathorized: false
   }
 });

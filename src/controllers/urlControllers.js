@@ -57,7 +57,6 @@ export async function readShortUrl(req, res) {
 export async function deleteUrl(req, res) {
   const { id } = req.params;
   const session = res.locals.session;
-  console.log(id)
 
   try {
     const url = await getAllDataUrlById(id);
@@ -77,4 +76,4 @@ export async function deleteUrl(req, res) {
   } catch (error) {
     res.status(500).send(error.message);
   }
-}
+};
